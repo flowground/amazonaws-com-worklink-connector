@@ -1,0 +1,58 @@
+{
+    "type": "object",
+    "properties": {
+        "MaxResults": {
+            "required": false,
+            "type": "string"
+        },
+        "NextToken": {
+            "required": false,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "MaxResults": {
+                    "description": "The maximum number of results to be included in the next page.",
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "NextToken": {
+                    "description": "The pagination token used to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.",
+                    "maxLength": 4096,
+                    "minLength": 1,
+                    "pattern": "[\\w\\-]+",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,380 @@
+{
+    "title": "Amazon WorkLink",
+    "description": "Amazon WorkLink is a cloud-based service that provides secure access to internal websites and web apps from iOS phones. In a single step, your users, such as employees, can access internal websites as efficiently as they access any other public website. They enter a URL in their web browser, or choose a link to an internal website in an email. Amazon WorkLink authenticates the user's access and securely renders authorized internal web content in a secure rendering service in the AWS cloud. Amazon WorkLink doesn't download or store any internal web content on mobile devices.",
+    "docsUrl": "https://docs.aws.amazon.com/worklink/",
+    "url": "https://api.apis.guru/v2/specs/amazonaws.com/worklink/2018-09-25/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://worklink.amazonaws.com/",
+                    "http://worklink.amazonaws.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "hmac": {
+                "label": "Authorization (hmac)",
+                "viewClass": "TextFieldView",
+                "note": "Amazon Signature authorization v4"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "UpdateFleetMetadata": {
+            "main": "./lib/actions/UpdateFleetMetadata.js",
+            "title": "Updates fleet metadata, such as DisplayName.",
+            "description": "Updates fleet metadata, such as DisplayName.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateFleetMetadata.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AssociateWebsiteCertificateAuthority": {
+            "main": "./lib/actions/AssociateWebsiteCertificateAuthority.js",
+            "title": "Imports the root certificate of a certificate authority (CA) used to obtain TLS certificates used by associated websites within the company network.",
+            "description": "Imports the root certificate of a certificate authority (CA) used to obtain TLS certificates used by associated websites within the company network.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AssociateWebsiteCertificateAuthority.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateFleet": {
+            "main": "./lib/actions/CreateFleet.js",
+            "title": "Creates a fleet. A fleet consists of resources and the configuration that delivers associated websites to authorized users who download and set up the Amazon WorkLink app.",
+            "description": "Creates a fleet. A fleet consists of resources and the configuration that delivers associated websites to authorized users who download and set up the Amazon WorkLink app.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateFleet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteFleet": {
+            "main": "./lib/actions/DeleteFleet.js",
+            "title": "Deletes a fleet. Prevents users from accessing previously associated websites. ",
+            "description": "Deletes a fleet. Prevents users from accessing previously associated websites. ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteFleet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeAuditStreamConfiguration": {
+            "main": "./lib/actions/DescribeAuditStreamConfiguration.js",
+            "title": "Describes the configuration for delivering audit streams to the customer account.",
+            "description": "Describes the configuration for delivering audit streams to the customer account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeAuditStreamConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeCompanyNetworkConfiguration": {
+            "main": "./lib/actions/DescribeCompanyNetworkConfiguration.js",
+            "title": "Describes the networking configuration to access the internal websites associated with the specified fleet.",
+            "description": "Describes the networking configuration to access the internal websites associated with the specified fleet.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeCompanyNetworkConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeDevice": {
+            "main": "./lib/actions/DescribeDevice.js",
+            "title": "Provides information about a user's device.",
+            "description": "Provides information about a user's device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeDevice.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeDevicePolicyConfiguration": {
+            "main": "./lib/actions/DescribeDevicePolicyConfiguration.js",
+            "title": "Describes the device policy configuration for the specified fleet.",
+            "description": "Describes the device policy configuration for the specified fleet.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeDevicePolicyConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeFleetMetadata": {
+            "main": "./lib/actions/DescribeFleetMetadata.js",
+            "title": "Provides basic information for the specified fleet, excluding identity provider, networking, and device configuration details.",
+            "description": "Provides basic information for the specified fleet, excluding identity provider, networking, and device configuration details.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeFleetMetadata.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeIdentityProviderConfiguration": {
+            "main": "./lib/actions/DescribeIdentityProviderConfiguration.js",
+            "title": "Describes the identity provider configuration of the specified fleet.",
+            "description": "Describes the identity provider configuration of the specified fleet.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeIdentityProviderConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeWebsiteCertificateAuthority": {
+            "main": "./lib/actions/DescribeWebsiteCertificateAuthority.js",
+            "title": "Provides information about the certificate authority.",
+            "description": "Provides information about the certificate authority.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeWebsiteCertificateAuthority.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DisassociateWebsiteCertificateAuthority": {
+            "main": "./lib/actions/DisassociateWebsiteCertificateAuthority.js",
+            "title": "Removes a certificate authority (CA).",
+            "description": "Removes a certificate authority (CA).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DisassociateWebsiteCertificateAuthority.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListDevices": {
+            "main": "./lib/actions/ListDevices.js",
+            "title": "Retrieves a list of devices registered with the specified fleet.",
+            "description": "Retrieves a list of devices registered with the specified fleet.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListDevices.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListFleets": {
+            "main": "./lib/actions/ListFleets.js",
+            "title": "Retrieves a list of fleets for the current account and Region.",
+            "description": "Retrieves a list of fleets for the current account and Region.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListFleets.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListWebsiteCertificateAuthorities": {
+            "main": "./lib/actions/ListWebsiteCertificateAuthorities.js",
+            "title": "Retrieves a list of certificate authorities added for the current account and Region.",
+            "description": "Retrieves a list of certificate authorities added for the current account and Region.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListWebsiteCertificateAuthorities.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SignOutUser": {
+            "main": "./lib/actions/SignOutUser.js",
+            "title": "Signs the user out from all of their devices. The user can sign in again if they have valid credentials.",
+            "description": "Signs the user out from all of their devices. The user can sign in again if they have valid credentials.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SignOutUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateAuditStreamConfiguration": {
+            "main": "./lib/actions/UpdateAuditStreamConfiguration.js",
+            "title": "Updates the audit stream configuration for the fleet.",
+            "description": "Updates the audit stream configuration for the fleet.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateAuditStreamConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateCompanyNetworkConfiguration": {
+            "main": "./lib/actions/UpdateCompanyNetworkConfiguration.js",
+            "title": "Updates the company network configuration for the fleet.",
+            "description": "Updates the company network configuration for the fleet.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateCompanyNetworkConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateDevicePolicyConfiguration": {
+            "main": "./lib/actions/UpdateDevicePolicyConfiguration.js",
+            "title": "Updates the device policy configuration for the fleet.",
+            "description": "Updates the device policy configuration for the fleet.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateDevicePolicyConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateIdentityProviderConfiguration": {
+            "main": "./lib/actions/UpdateIdentityProviderConfiguration.js",
+            "title": "Updates the identity provider configuration for the fleet.",
+            "description": "Updates the identity provider configuration for the fleet.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateIdentityProviderConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

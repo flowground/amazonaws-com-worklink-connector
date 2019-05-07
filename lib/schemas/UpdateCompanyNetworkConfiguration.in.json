@@ -1,0 +1,79 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "FleetArn": {
+                    "description": "The ARN of the fleet.",
+                    "maxLength": 2048,
+                    "minLength": 20,
+                    "type": "string"
+                },
+                "SecurityGroupIds": {
+                    "description": "The security groups associated with access to the provided subnets.",
+                    "items": {
+                        "pattern": "^sg-([0-9a-f]{8}|[0-9a-f]{17})$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "SubnetIds": {
+                    "description": "The subnets used for X-ENI connections from Amazon WorkLink rendering containers.",
+                    "items": {
+                        "pattern": "^subnet-([0-9a-f]{8}|[0-9a-f]{17})$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "VpcId": {
+                    "description": "The VPC with connectivity to associated websites.",
+                    "pattern": "^vpc-([0-9a-f]{8}|[0-9a-f]{17})$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "FleetArn",
+                "VpcId",
+                "SubnetIds",
+                "SecurityGroupIds"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
